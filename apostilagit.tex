@@ -31,13 +31,13 @@ exemplificar os conceitos.
 \tableofcontents
 
 \section{Introdução}
-Desenvolver \textit{software} sem utilizar um sistema de controle de versões...
+    Desenvolver \textit{software} sem utilizar um sistema de controle de versões...
 
 \section{Controle de versões}
-O que é?
+    O que é?
 
 \section{Git}
-Desenvolvido por Linus Torvalds
+    Desenvolvido por Linus Torvalds
 
 \section{Fluxo comum de trabalho em um projeto de software}
     O fluxo "normal" de trabalho, em um projeto de \textit{software}, pode ser
@@ -48,5 +48,29 @@ Desenvolvido por Linus Torvalds
         \item Salvar;
         \item Devolver para o centralizador.
     \end{itemize}
+    Até tudo bem. O desenvolvedor abre o código fonte, faz seu trabalho e
+    então devolve o resultado para uma base central. Em projetos individuais ou
+    de equipes bem pequenas, como duplas ou trios, esse método pode até
+    funcionar, mesmo assim esta não é uma boa solução.
+    
+    \subsection{Os problemas começam}
+        Imagine alterar um arquivo, colocar em produção e depois de um tempo ver
+        que suas alterações simplesmente desapareceram. Isso pode acontecer quando
+        outro desenvolvedor também fizer alterações no mesmo arquivo e enviar as
+        suas alterações após o primeiro, sem antes verificar se os arquivos do
+        projeto continuavam iguais aos que ele pegou antes de alterar.
+        
+        Veja o tempo que se perde por ter que verificar os arquivos antes de
+        cada atualização. E o tempo maior ainda por ter que refazer algo que já
+        havia sido feito, fora a frustração e o desanimo que esse tipo de
+        situação geralmente causa.
+    
+    \subsection{A solução aparece no horizonte}
+        E se existisse algum tipo de software que ajudasse a verificar os
+        arquivos, saber quem alterou, que linhas alterou e quando alterou?
+        
+        Sim, isso seria muito legal. Mas espere, isso existe sim! São os
+        Sistemas de Controle de Versão\footnote{SCM - Source Code Management,
+        em inglês.}.
 
 \end{document}
