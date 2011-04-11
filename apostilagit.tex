@@ -3,9 +3,14 @@
 % Usando UTF-8
 \usepackage[utf8]{inputenc}
 
+% Para usar codigos de programas
+\usepackage{listings}
+\lstset{language=bash}
+
 % Renomeando o "Abstract" para "Resumo"
 \renewcommand{\abstractname}{Resumo}
 \renewcommand{\contentsname}{Sumário}
+\renewcommand{\chaptername}{Capítulo}
 
 \begin{document}
 
@@ -23,23 +28,17 @@ equipes que não usam sistemas de controle de versão.
 Esta apostila foi desenvolvida para ajudar iniciantes e interessados em
 sistemas de controle de versões à entender os conceitos de controle de versões
 e por que fazê-lo. O \textbf{Git}, desenvolvido por Linus Torvalds, criador do
-kernel Linux, é o software de controle de versões usado nesta apostila para
-exemplificar os conceitos.
+\textit{kernel} Linux, é o software de controle de versões usado nesta
+apostila para exemplificar os conceitos.
 % Preciso melhorar este texto depois =)
 \end{abstract}
 
 \tableofcontents
 
-\section{Introdução}
+\chapter{Introdução}
     Desenvolver \textit{software} sem utilizar um sistema de controle de versões...
 
-\section{Controle de versões}
-    O que é?
-
-\section{Git}
-    Desenvolvido por Linus Torvalds
-
-\section{Fluxo comum de trabalho em um projeto de software}
+\chapter{Fluxo comum de trabalho em um projeto de software}
     O fluxo "normal" de trabalho, em um projeto de \textit{software}, pode ser
     resumido em:
     \begin{itemize}
@@ -48,12 +47,12 @@ exemplificar os conceitos.
         \item Salvar;
         \item Devolver para o centralizador.
     \end{itemize}
-    Até tudo bem. O desenvolvedor abre o código fonte, faz seu trabalho e
+    Até aqui, tudo bem. O desenvolvedor abre o código fonte, faz seu trabalho e
     então devolve o resultado para uma base central. Em projetos individuais ou
     de equipes bem pequenas, como duplas ou trios, esse método pode até
     funcionar, mesmo assim esta não é uma boa solução.
     
-    \subsection{Os problemas começam}
+    \section{Os problemas começam}
         Imagine alterar um arquivo, colocar em produção e depois de um tempo ver
         que suas alterações simplesmente desapareceram. Isso pode acontecer quando
         outro desenvolvedor também fizer alterações no mesmo arquivo e enviar as
@@ -65,7 +64,7 @@ exemplificar os conceitos.
         havia sido feito, fora a frustração e o desanimo que esse tipo de
         situação geralmente causa.
     
-    \subsection{A solução aparece no horizonte}
+    \section{A solução aparece no horizonte}
         E se existisse algum tipo de software que ajudasse a verificar os
         arquivos, saber quem alterou, que linhas alterou e quando alterou?
         
@@ -73,4 +72,42 @@ exemplificar os conceitos.
         Sistemas de Controle de Versão\footnote{SCM - Source Code Management,
         em inglês.}.
 
+\chapter{Controle de versões}
+    O que é?
+
+\chapter{Git}
+    Desenvolvido por Linus Torvalds
+
+\chapter{Iniciando um projeto}
+    Para iniciar um novo projeto, crie um diretório, ou use um já existe,
+    inclusive onde já existem arquivos, e use, neste diretório, a opção
+    \textbf{init} do Git:
+    \begin{lstlisting}
+        $ mkdir projeto
+        $ git init
+    \end{lstlisting}
+    Agora crie os arquivos ou trabalhe no seu projeto, normalmente. Até este
+    momento o Git ainda não sabe da existência dos arquivos do projeto, para
+    que os arquivos sejam adicionados ao controle de versões use a opção
+    \textbf{add} do Git:
+    \begin{lstlisting}
+        $ git add arquivo
+    \end{lstlisting}
+    Também é possível adicionar todos os arquivos novos/alterados de uma vez
+    usando a opção \textbf{ponto}:
+    \begin{lstlisting}
+        $ git add .
+    \end{lstlisting}
+    Depois de adicionar os arquivos é necessário fazer o \textit{commit}%
+    \footnote{Commit: É uma confirmação do que foi feito.}. % Preciso melhorar essa descrição do commit...
+    Para fazer o commit use a opção \textbf{commit} do Git:
+    \begin{lstlisting}
+        $ git commit -m "Mensagem descrevendo o que foi feito"
+    \end{lstlisting}
+    A opção \textbf{-m} usada no comando acima permite adicionar uma pequena
+    mensagem de \textit{commit} diretamente na linha de comando. Caso essa
+    opção não seja informada será aberto o editor de textos padrão para que a
+    mensagem seja digitada. Em geral o editor usado é o \textbf{Vim} ou o
+    \textbf{Nano}. Optar por não usar o \textbf{-m} é uma boa escolha quando
+    se deseja escrever mensagens de \textit{commit} maiores e mais detalhadas.
 \end{document}
